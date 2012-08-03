@@ -3,6 +3,9 @@
 * resource/provider for managing WebPI Applications
 * support for alternate custom feeds across all WebPI resources (product and application)
 
+## 1.0.3
+* Created the ability to use the XML parameter for custom xml files.
+
 ## 1.0.2:
 
 * Ruby 1.9 compat fixes

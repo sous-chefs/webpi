@@ -24,6 +24,8 @@ Attributes
 ==========
 
 * `node['webpi']['home']` - location to install WebPI files to.  default is `%SYSTEMDRIVE%\webpi`
+* `node['webpi']['url']` - Path to download webpi zip
+* `node['webpi']['xmlpath']` - Optional path to custom xml file
 
 Resource/Provider
 =================
