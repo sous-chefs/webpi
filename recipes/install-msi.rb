@@ -1,7 +1,7 @@
 #
 # Author:: Guilhem Lettron (<guilhem.lettron@youscribe.com>)
 # Cookbook Name:: webpi
-# Recipe:: default
+# Recipe:: install-msi
 #
 # Copyright 2011, Opscode, Inc.
 #
@@ -18,4 +18,9 @@
 # limitations under the License.
 #
 
-include_recipe"webpi::install-#{node['webpi']['install_method']}"
+include_recipe "windows"
+
+windows_package "Web Platform Installer" do
+  source node['webpi']['msi']
+  action :install
+end

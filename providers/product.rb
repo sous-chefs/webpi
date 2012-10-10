@@ -46,6 +46,6 @@ end
 
 def webpicmdline
   @webpicmdline ||= begin
-    "#{node['webpi']['home']}\\WebpiCmdLine.exe"
+    ::File.join( node['webpi']['home'] , "WebpiCmdLine.exe" )
   end
 end
