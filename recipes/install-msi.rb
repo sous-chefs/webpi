@@ -20,7 +20,16 @@
 
 include_recipe "windows"
 
-windows_package "Web Platform Installer" do
+#msi bug workaround
+msi_file = ::File.join( Chef::Config[:file_cache_path], "wpi.msi" )
+
+remote_file "msi" do
+  path msi_file
   source node['webpi']['msi']
+  action :create
+end
+
+windows_package "Web Platform Installer" do
+  source msi_file
   action :install
 end
