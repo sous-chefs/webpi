@@ -25,7 +25,8 @@ include Windows::Helper
 
 action :install do
   unless installed?
-    cmd = "#{webpicmd} /Install /products:#{@new_resource.product_id} /suppressreboot"
+    cmd = "#{webpicmd} /Install"
+    cmd << " /products:#{@new_resource.product_id} /suppressreboot"
     cmd << " /accepteula" if @new_resource.accept_eula
     cmd << " /XML:#{node['webpi']['xmlpath']}" if node['webpi']['xmlpath']
     shell_out!(cmd, {:returns => [0,42]})
