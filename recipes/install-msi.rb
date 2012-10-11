@@ -33,3 +33,6 @@ windows_package "Web Platform Installer" do
   source msi_file
   action :install
 end
+
+# MSI manage PATH
+node.default['webpi']['bin'] = "WebpiCmd.exe"

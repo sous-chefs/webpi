@@ -41,3 +41,5 @@ windows_zipfile "webpicmdline" do
   action :nothing
   not_if { ::File.exists?("#{node['webpi']['home']}/WebpiCmd.exe") }
 end
+
+node.default['webpi']['bin'] = "#{node['webpi']['home']}\\WebpiCmd.exe"

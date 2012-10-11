@@ -47,6 +47,6 @@ end
 
 def webpicmd
   @webpicmd ||= begin
-    "WebpiCmd.exe"
+    node['webpi']['bin']
   end
 end
