@@ -23,7 +23,7 @@ default['webpi']['install_method'] = "msi" # msi or zip
 case  node['kernel']['machine']
 when "x86_64"
   default['webpi']['msi'] = "http://download.microsoft.com/download/7/0/4/704CEB4C-9F42-4962-A2B0-5C84B0682C7A/WebPlatformInstaller_amd64_en-US.msi"
-when /i[0-9][0-9][0-9]/
+when /i[3-6]86/
   default['webpi']['msi'] = "http://download.microsoft.com/download/7/0/4/704CEB4C-9F42-4962-A2B0-5C84B0682C7A/WebPlatformInstaller_x86_en-US.msi"
 end
 
