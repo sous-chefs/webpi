@@ -41,7 +41,11 @@ private
 def installed?
   @installed ||= begin
     cmd = shell_out("#{webpicmd} /List /ListOption:Installed", {:returns => [0,42]})
-    cmd.stderr.empty? && cmd.stdout.lines.grep(/^#{@new_resource.product_id}\s.*$/i)
+    #cmd.stderr.empty? && cmd.stdout.lines.grep(/^#{@new_resource.product_id}\s.*$/i)
+    #tested via irb win2008R2 chef client 10.16.2
+    # a space is requires after the product_id name
+    outputcmd = cmd.stdout.lines.grep(/\r#{@new_resource.product_id} /i)
+    cmd.stderr.empty? && outputcmd.length > 0
   end
 end
 
