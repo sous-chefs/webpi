@@ -38,8 +38,10 @@ end.run_action(:install)
 # MSI manage PATH
 if system("where WebpiCmd.exe 2>&1 > NUL")
   node.default['webpi']['bin'] = "WebpiCmd.exe"
-elsif ::File.exists? "C:/Program Files/Microsoft/Web Platform Installer/WebpiCmd.exe"
-  node.default['webpi']['bin'] = "C:/Program Files/Microsoft/Web Platform Installer/WebpiCmd.exe"
+elsif ::File.exists? "#{ENV['ProgramW6432']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
+  node.default['webpi']['bin'] = "#{ENV['ProgramW6432']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
+elsif ::File.exists? "#{ENV['ProgramFiles']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
+  node.default['webpi']['bin'] = "#{ENV['ProgramFiles']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
 else
   Chef::Log.error "Unable to find Webpi executable"
   raise "WebpiCmd.exe can't be found"
