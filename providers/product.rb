@@ -25,7 +25,7 @@ include Windows::Helper
 
 action :install do
   unless installed?
-    cmd = "#{webpicmd} /Install"
+    cmd = "\"#{webpicmd}\" /Install"
     cmd << " /products:#{@new_resource.product_id} /suppressreboot"
     cmd << " /accepteula" if @new_resource.accept_eula
     cmd << " /XML:#{node['webpi']['xmlpath']}" if node['webpi']['xmlpath']
@@ -41,8 +41,8 @@ end
 private
 def installed?
   @installed ||= begin
-    cmd = shell_out("#{webpicmd} /List /ListOption:Installed", {:returns => [0,42]})
-    cmd.stderr.empty? && cmd.stdout.lines.grep(/^#{@new_resource.product_id}\s.*$/i)
+    cmd = shell_out("\"#{webpicmd}\" /List /ListOption:Installed", {:returns => [0,42]})
+    cmd.stderr.empty? && ! cmd.stdout.lines.grep(/^#{@new_resource.product_id}\s.*$/i).empty?
   end
 end
 
