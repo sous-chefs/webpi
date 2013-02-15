@@ -42,7 +42,7 @@ private
 def installed?
   @installed ||= begin
     cmd = shell_out("#{webpicmd} /List /ListOption:Installed", {:returns => [0,42]})
-    cmd.stderr.empty? && cmd.stdout.lines.grep(/^#{@new_resource.product_id}\s.*$/i)
+    cmd.stderr.empty? && !cmd.stdout.lines.grep(/^#{@new_resource.product_id}\s.*$/i).empty?
   end
 end
 
