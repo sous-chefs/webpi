@@ -23,27 +23,41 @@ require 'chef/mixin/shell_out'
 include Chef::Mixin::ShellOut
 include Windows::Helper
 
-action :install do
-  unless installed?
+action :install do  
+  check_installed
+
+  unless @install_list.empty?
     cmd = "\"#{webpicmd}\" /Install"
-    cmd << " /products:#{@new_resource.product_id} /suppressreboot"
+    cmd << " /products:#{@install_list} /suppressreboot"
     cmd << " /accepteula" if @new_resource.accept_eula
     cmd << " /XML:#{node['webpi']['xmlpath']}" if node['webpi']['xmlpath']
     cmd << " /Log:#{node['webpi']['log']}"
     shell_out!(cmd, {:returns => [0,42]})
     @new_resource.updated_by_last_action(true)
-    Chef::Log.info("#{@new_resource} added new product '#{@new_resource.product_id}'")
+    Chef::Log.info("#{@new_resource} added new product '#{@install_list}'")
   else
     Chef::Log.debug("#{@new_resource} product already exists - nothing to do")
   end
 end
 
 private
-def installed?
-  @installed ||= begin
-    cmd = shell_out("\"#{webpicmd}\" /List /ListOption:Installed", {:returns => [0,42]})
-    cmd.stderr.empty? && ! cmd.stdout.lines.grep(/^#{@new_resource.product_id}\s.*$/i).empty?
-  end
+
+def check_installed
+    @install_array = Array.new
+    cmd = "\"#{webpicmd}\" /List /ListOption:Installed"
+    cmd << " /XML:#{node['webpi']['xmlpath']}" if node['webpi']['xmlpath']
+    cmd_out = shell_out(cmd, {:returns => [0,42]})
+    unless cmd_out.stderr.empty?
+      Chef::Log.Info(cmd_out.stderr)
+      @install_array = @new_resource.product_id
+    else
+      @new_resource.product_id.split(",").each do |p|
+        if cmd_out.stdout.lines.grep(/#{p}\s.*$/i).empty?
+          @install_array << p
+        end
+      end      
+    end
+    @install_list = @install_array.join(",")
 end
 
 def webpicmd
