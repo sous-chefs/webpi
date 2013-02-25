@@ -52,7 +52,7 @@ def check_installed
       @install_array = @new_resource.product_id
     else
       @new_resource.product_id.split(",").each do |p|
-        if cmd_out.stdout.lines.grep(/#{p}\s.*$/i).empty?
+        if cmd_out.stdout.lines.grep(/^\s{6}#{p}\s.*$/i).empty?
           @install_array << p
         end
       end      
