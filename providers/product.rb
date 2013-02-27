@@ -42,6 +42,8 @@ end
 
 private
 
+#Method checks webpi to see what's installed. 
+#Then loops through each product, and if it's missing, adds it to a list to be installeds
 def check_installed
     @install_array = Array.new
     cmd = "\"#{webpicmd}\" /List /ListOption:Installed"
@@ -52,6 +54,10 @@ def check_installed
       @install_array = @new_resource.product_id
     else
       @new_resource.product_id.split(",").each do |p|
+        #Example output
+        #HTTPErrors           IIS: HTTP Errors
+        #Example output returned via grep
+        #\r    \rHTTPErrors           IIS: HTTP Errors\r\ns
         if cmd_out.stdout.lines.grep(/^\s{6}#{p}\s.*$/i).empty?
           @install_array << p
         end
