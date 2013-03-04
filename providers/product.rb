@@ -43,7 +43,7 @@ end
 private
 
 #Method checks webpi to see what's installed. 
-#Then loops through each product, and if it's missing, adds it to a list to be installeds
+#Then loops through each product, and if it's missing, adds it to a list to be installed
 def check_installed
     @install_array = Array.new
     cmd = "\"#{webpicmd}\" /List /ListOption:Installed"
