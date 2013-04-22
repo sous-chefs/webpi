@@ -14,6 +14,8 @@ Platform
 * Windows Server 2003 R2
 * Windows 7
 * Windows Server 2008 (R1, R2)
+* Windows 8
+* Windows Server 2012
 
 Cookbooks
 ---------
@@ -43,11 +45,11 @@ Resource/Provider
 ### Attribute Parameters
 
 - product_id: name attribute. Specifies the ID of a product to install.
-- accept_eula: specifies that WebpiCmdline should Auto-Accept Eula’s. default is false.
+- accept_eula: specifies that WebpiCmdline should auto-accept EULAs. Default is false.
 
 ### Examples
 
-    # install IIS 7 Recommended Configuration
+    # install IIS 7 Recommended Configuration (will install IIS 8 on Windows 2012 despite the name)
     webpi_product "IIS7" do
       accept_eula true
       action :install
