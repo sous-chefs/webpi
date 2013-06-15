@@ -3,6 +3,13 @@
 * resource/provider for managing WebPI Applications
 * support for alternate custom feeds across all WebPI resources (product and application)
 
+## v1.2.2:
+
+### Improvement
+
+- [COOK-2719]: update webpi documentation to show that Windows 2012
+  and Windows 8 are supported
+
 ## v1.2.0:
 
 * [COOK-2298] - webpi will not install anything due to logic bug
