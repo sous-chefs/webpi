@@ -3,6 +3,12 @@ webpi Cookbook CHANGELOG
 This file is used to list changes made in each version of the webpi cookbook.
 
 
+v1.2.4
+------
+### Improvement
+- **[COOK-3474](https://tickets.opscode.com/browse/COOK-3474)** - Upgrade WebPI (4.5 no longer exists)
+
+
 v1.2.2
 ------
 ### Improvement
