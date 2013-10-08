@@ -23,7 +23,7 @@ require 'chef/mixin/shell_out'
 include Chef::Mixin::ShellOut
 include Windows::Helper
 
-action :install do  
+action :install do
   check_installed
 
   unless @install_list.empty?
@@ -42,7 +42,7 @@ end
 
 private
 
-#Method checks webpi to see what's installed. 
+#Method checks webpi to see what's installed.
 #Then loops through each product, and if it's missing, adds it to a list to be installed
 def check_installed
     @install_array = Array.new
@@ -61,7 +61,7 @@ def check_installed
         if cmd_out.stdout.lines.grep(/^\s{6}#{p}\s.*$/i).empty?
           @install_array << p
         end
-      end      
+      end
     end
     @install_list = @install_array.join(",")
 end
