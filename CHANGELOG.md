@@ -3,6 +3,11 @@ webpi Cookbook CHANGELOG
 This file is used to list changes made in each version of the webpi cookbook.
 
 
+v1.2.6
+------
+- [COOK-3372] - unzip webpi if webpi executable doesn't exist
+
+
 v1.2.4
 ------
 ### Improvement
