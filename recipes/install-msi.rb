@@ -20,16 +20,9 @@
 
 include_recipe "windows"
 
-#msi bug workaround
-msi_file = ::File.join( Chef::Config[:file_cache_path], "wpi.msi" )
+msi_file = cached_file(node['webpi']['msi'], node['webpi']['msi_checksum'])
 
 # Do this stuff at compile time so we can build the path and use the exe on this run for the LWRP
-remote_file "msi" do
-  path msi_file
-  source node['webpi']['msi']
-  action :nothing
-end.run_action(:create)
-
 windows_package node['webpi']['msi_package_name'] do
   source msi_file
   action :nothing
