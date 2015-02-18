@@ -6,7 +6,7 @@ This file is used to list changes made in each version of the webpi cookbook.
 v1.2.8 (2014-02-14)
 -------------------
 ### Bug
-- **[COOK-3832](https://tickets.opscode.com/browse/COOK-3832)** - install-msi recipe should leverage chef cache
+- **[COOK-3832](https://tickets.chef.io/browse/COOK-3832)** - install-msi recipe should leverage chef cache
 
 
 v1.2.6
@@ -17,7 +17,7 @@ v1.2.6
 v1.2.4
 ------
 ### Improvement
-- **[COOK-3474](https://tickets.opscode.com/browse/COOK-3474)** - Upgrade WebPI (4.5 no longer exists)
+- **[COOK-3474](https://tickets.chef.io/browse/COOK-3474)** - Upgrade WebPI (4.5 no longer exists)
 
 
 v1.2.2
