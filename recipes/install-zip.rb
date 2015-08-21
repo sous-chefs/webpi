@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-include_recipe "windows"
+include_recipe 'windows'
 
 file_name = ::File.basename(node['webpi']['url'])
 installdir = node['webpi']['home']
@@ -27,7 +27,7 @@ remote_file "#{Chef::Config[:file_cache_path]}/#{file_name}" do
   source node['webpi']['url']
   checksum node['webpi']['checksum']
   notifies :delete, "directory[#{installdir}]", :immediately
-  notifies :unzip, "windows_zipfile[webpicmdline]", :immediately
+  notifies :unzip, 'windows_zipfile[webpicmdline]', :immediately
 end
 
 directory installdir do
@@ -35,10 +35,10 @@ directory installdir do
   recursive true
 end
 
-windows_zipfile "webpicmdline" do
+windows_zipfile 'webpicmdline' do
   path installdir
   source "#{Chef::Config[:file_cache_path]}/#{file_name}"
-  not_if { ::File.exists?("#{node['webpi']['home']}/WebpiCmd.exe") }
+  not_if { ::File.exist?("#{node['webpi']['home']}/WebpiCmd.exe") }
 end
 
 node.default['webpi']['bin'] = "#{node['webpi']['home']}\\WebpiCmd.exe"

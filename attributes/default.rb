@@ -18,18 +18,18 @@
 # limitations under the License.
 #
 
-default['webpi']['install_method'] = "msi" # msi or zip
+default['webpi']['install_method'] = 'msi' # msi or zip
 
-case  node['kernel']['machine']
-when "x86_64"
+case node['kernel']['machine']
+when 'x86_64'
   default['webpi']['msi_checksum'] = '63eb18348d9299a575124b55cb86b748abeb971b869d8ce14b7c4bec4b76c5f6'
-  default['webpi']['msi'] = "http://download.microsoft.com/download/7/0/4/704CEB4C-9F42-4962-A2B0-5C84B0682C7A/WebPlatformInstaller_amd64_en-US.msi"
+  default['webpi']['msi'] = 'http://download.microsoft.com/download/7/0/4/704CEB4C-9F42-4962-A2B0-5C84B0682C7A/WebPlatformInstaller_amd64_en-US.msi'
 when /i[3-6]86/
   default['webpi']['msi_checksum'] = '9c29ed64a57358997597cbc9c876e4828c706090cc31f6ab18590d1170b660de'
-  default['webpi']['msi'] = "http://download.microsoft.com/download/7/0/4/704CEB4C-9F42-4962-A2B0-5C84B0682C7A/WebPlatformInstaller_x86_en-US.msi"
+  default['webpi']['msi'] = 'http://download.microsoft.com/download/7/0/4/704CEB4C-9F42-4962-A2B0-5C84B0682C7A/WebPlatformInstaller_x86_en-US.msi'
 end
 
-default['webpi']['msi_package_name'] = "Microsoft Web Platform Installer 4.6"
+default['webpi']['msi_package_name'] = 'Microsoft Web Platform Installer 4.6'
 
 default['webpi']['url']       = 'http://download.microsoft.com/download/6/8/D/68DAB32D-10B6-461D-8FF5-43CE9BDA6CE5/WebPICMD.zip'
 default['webpi']['checksum']  = '7bef8162b983fc83584016dbe0d3b0070a54eca44155f532b65a3ded7a59dccd'

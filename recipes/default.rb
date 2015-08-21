@@ -18,4 +18,4 @@
 # limitations under the License.
 #
 
-include_recipe"webpi::install-#{node['webpi']['install_method']}"
+include_recipe "webpi::install-#{node['webpi']['install_method']}"

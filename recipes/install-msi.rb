@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-include_recipe "windows"
+include_recipe 'windows'
 
 msi_file = cached_file(node['webpi']['msi'], node['webpi']['msi_checksum'])
 
@@ -29,13 +29,13 @@ windows_package node['webpi']['msi_package_name'] do
 end.run_action(:install)
 
 # MSI manage PATH
-if system("where WebpiCmd.exe 2>&1 > NUL")
-  node.default['webpi']['bin'] = "WebpiCmd.exe"
-elsif ::File.exists? "#{ENV['ProgramW6432']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
+if system('where WebpiCmd.exe 2>&1 > NUL')
+  node.default['webpi']['bin'] = 'WebpiCmd.exe'
+elsif ::File.exist? "#{ENV['ProgramW6432']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
   node.default['webpi']['bin'] = "#{ENV['ProgramW6432']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
-elsif ::File.exists? "#{ENV['ProgramFiles']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
+elsif ::File.exist? "#{ENV['ProgramFiles']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
   node.default['webpi']['bin'] = "#{ENV['ProgramFiles']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
 else
-  Chef::Log.error "Unable to find Webpi executable"
-  raise "WebpiCmd.exe can't be found"
+  Chef::Log.error 'Unable to find Webpi executable'
+  fail "WebpiCmd.exe can't be found"
 end
