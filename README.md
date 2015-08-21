@@ -6,9 +6,7 @@ Microsoft Web Platform Installer (WebPI) automates the installation of Microsoft
 Requirements
 ------------
 ### Platforms
-* Windows XP
 * Windows Vista
-* Windows Server 2003 R2
 * Windows 7
 * Windows Server 2008 (R1, R2)
 * Windows 8
