@@ -32,7 +32,7 @@ action :install do
     cmd << ' /accepteula' if @new_resource.accept_eula
     cmd << " /XML:#{node['webpi']['xmlpath']}" if node['webpi']['xmlpath']
     cmd << " /Log:#{node['webpi']['log']}"
-    shell_out!(cmd, :returns => [0, 42])
+    shell_out!(cmd, returns: [0, 42])
     @new_resource.updated_by_last_action(true)
     Chef::Log.info("#{@new_resource} added new product '#{@install_list}'")
   else
@@ -48,7 +48,7 @@ def check_installed
   @install_array = []
   cmd = "\"#{webpicmd}\" /List /ListOption:Installed"
   cmd << " /XML:#{node['webpi']['xmlpath']}" if node['webpi']['xmlpath']
-  cmd_out = shell_out(cmd, :returns => [0, 42])
+  cmd_out = shell_out(cmd, returns: [0, 42])
   unless cmd_out.stderr.empty?
     Chef::Log.Info(cmd_out.stderr)
     @install_array = @new_resource.product_id
