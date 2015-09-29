@@ -8,14 +8,14 @@ Microsoft Web Platform Installer (WebPI) automates the installation of Microsoft
 
 Requirements
 ------------
-### Platforms
+#### Platforms
 * Windows Vista
 * Windows 7
 * Windows Server 2008 (R1, R2)
 * Windows 8
 * Windows Server 2012
 
-### Cookbooks
+#### Cookbooks
 * windows
 
 
@@ -65,11 +65,12 @@ Downloads and unzips `WebpiCmdLine.exe` to the location specified by `node['webp
 
 License & Authors
 -----------------
-Author:: Seth Chisamore (<schisamo@chef.io>)
 
-```text
-Copyright:: 2011-2015, Chef Software, Inc.
+**Author:** Cookbook Engineering Team (<cookbooks@chef.io>)
 
+**Copyright:** 2011-2015, Chef Software, Inc.
+
+```
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
