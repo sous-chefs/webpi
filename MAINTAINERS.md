@@ -10,10 +10,16 @@ Check out [How Cookbooks are Maintained](https://github.com/chef-cookbooks/commu
 for details on the process and how to become a maintainer or the project lead.
 
 # Project Maintainer
-* [Tim Smith](https://github.com/tas50)
+* [Adam Edwards](https://github.com/adamedx)
 
 # Maintainers
-* [Jennifer Davis](https://github.com/sigje)
+* [Adam Edwards](https://github.com/adamedx)
+* [Kartik Null Cating-Subramanian](https://github.com/ksubrama)
+* [Steven Murawski](https://github.com/smurawski)
+* [Matt Wrock](https://github.com/mwrock)
+* [Jay Mundrawala](https://github.com/jaym)
+* [Claire McQuin](https://github.com/mcquin)
+* [Salim Alam](https://github.com/chefsalim)
 * [Sean OMeara](https://github.com/someara)
 * [Tim Smith](https://github.com/tas50)
-* [Thom May](https://github.com/thommay)
+* [Jennifer Davis](https://github.com/sigje)
