@@ -31,6 +31,26 @@ Attributes
 
 Resource/Provider
 -----------------
+### webpi_application
+#### Actions
+- :install: install an application using WebpiCmdLine
+
+#### Attribute Parameters
+- product_id: name attribute. Specifies the ID of an application to install.
+- accept_eula: specifies that WebpiCmdLine should auto-accept EULAs. Default is false.
+- mysql_password: Specifies the password to use for MySQL when installing applications that use MySQL.
+- sql_password: Specifies the password to use for SQL server when installing applications that use SQL server.
+
+#### Examples
+Install WordPress (Will install PHP, IIS 8 and MySQL too)
+```ruby
+webpi_application 'WordPress' do
+  accept_eula true
+  mysql_password 'some_password'
+  action :install
+end
+```
+
 ### webpi_product
 #### Actions
 - :install: install a product using WebpiCmdLine
