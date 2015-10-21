@@ -12,8 +12,8 @@ Requirements
 * Windows Vista
 * Windows 7
 * Windows Server 2008 (R1, R2)
-* Windows 8
-* Windows Server 2012
+* Windows 8, 8.1
+* Windows Server 2012 (R1, R2)
 
 #### Cookbooks
 * windows
@@ -70,7 +70,7 @@ License & Authors
 
 **Copyright:** 2011-2015, Chef Software, Inc.
 
-```
+```text
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
