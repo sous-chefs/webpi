@@ -3,7 +3,7 @@ webpi Cookbook CHANGELOG
 This file is used to list changes made in each version of the webpi cookbook.
 
 
-v2.0.0 (2014-02-14)
+v2.0.0 (2015-10-21)
 -------------------
 - Remove the ability to install WebPI using the Microsoft distributed ZIP file.  Microsoft no longer distributes a .zip file.  If you have the install method set to zip, this cookbook will now fail.
 - Updated the requirements section of the readme to make the minimum supported Chef release 11
