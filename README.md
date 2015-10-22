@@ -15,6 +15,9 @@ Requirements
 * Windows 8, 8.1
 * Windows Server 2012 (R1, R2)
 
+#### Chef
+* Chef 11+
+
 #### Cookbooks
 * windows
 
@@ -22,9 +25,7 @@ Requirements
 Attributes
 ----------
 * `node['webpi']['home']` - location to install WebPI files to. Default is `%SYSTEMDRIVE%\webpi`
-* `node['webpi']['url']` - Path to download webpi zip.
 * `node['webpi']['xmlpath']` - Optional path to custom xml file.
-* `node['webpi']['install_method']` - Method of installing webpi via msi or zip. Default is msi.
 * `node['webpi']['msi']` - Location of msi file to use.
 * `node['webpi']['msi_package_name']` - Windows package name, found in registry, for msi. Defaults to "Microsoft Web Platform Installer 4.5"
 

@@ -18,4 +18,10 @@
 # limitations under the License.
 #
 
-include_recipe "webpi::install-#{node['webpi']['install_method']}"
+if node['webpi']['install_method'] == 'zip'
+  message = 'Microsoft no longer packages WebPI in zip format. You must now install WebPI using the MSIs'
+  Chef::Log.error message
+  fail message
+else
+  include_recipe "webpi::install-msi"
+end

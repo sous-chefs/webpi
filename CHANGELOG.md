@@ -3,27 +3,43 @@ webpi Cookbook CHANGELOG
 This file is used to list changes made in each version of the webpi cookbook.
 
 
+v2.0.0 (2014-02-14)
+-------------------
+- Remove the ability to install WebPI using the Microsoft distributed ZIP file.  Microsoft no longer distributes a .zip file.  If you have the install method set to zip, this cookbook will now fail.
+- Updated the requirements section of the readme to make the minimum supported Chef release 11
+- Removed Windows XP and Windows 2003 as supported platforms as these are now end of life
+- Added Windows 8.1 and 2012 R2 as supported platforms
+- Added gitignore file
+- Added chefignore file
+- Added Chef standard rubocop config
+- Added Travis CI testing
+- Added Berksfile
+- Added Gemfile with testing deps
+- Updated testing and contributing docs
+- Added maintainers.md and maintainers.toml files
+- Added travis and cookbook version badges to the readme
+- Added a Rakefile for simplified testing
+- Added source_url and issues_url to the metadata
+- Added basic convergence Chefspec
+- Resolved Rubocop warnings
+
 v1.2.8 (2014-02-14)
 -------------------
 ### Bug
 - **[COOK-3832](https://tickets.chef.io/browse/COOK-3832)** - install-msi recipe should leverage chef cache
 
-
 v1.2.6
 ------
 - [COOK-3372] - unzip webpi if webpi executable doesn't exist
-
 
 v1.2.4
 ------
 ### Improvement
 - **[COOK-3474](https://tickets.chef.io/browse/COOK-3474)** - Upgrade WebPI (4.5 no longer exists)
 
-
 v1.2.2
 ------
 ### Improvement
-
 - [COOK-2719]: update webpi documentation to show that Windows 2012
   and Windows 8 are supported
 
