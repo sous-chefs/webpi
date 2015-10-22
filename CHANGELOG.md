@@ -5,10 +5,11 @@ This file is used to list changes made in each version of the webpi cookbook.
 
 v2.0.0 (2015-10-21)
 -------------------
-- Remove the ability to install WebPI using the Microsoft distributed ZIP file.  Microsoft no longer distributes a .zip file.  If you have the install method set to zip, this cookbook will now fail.
+- Removed the ability to install WebPI using the Microsoft distributed ZIP file.  Microsoft no longer distributes a .zip file.  If you have the install method set to zip, this cookbook will now fail.
 - Updated the requirements section of the readme to make the minimum supported Chef release 11
 - Removed Windows XP and Windows 2003 as supported platforms as these are now end of life
-- Added Windows 8.1 and 2012 R2 as supported platforms
+- Added Windows 8.1 and 2012 R2 as supported platformsS
+- Removed Chef 10 compatibility
 - Added gitignore file
 - Added chefignore file
 - Added Chef standard rubocop config
