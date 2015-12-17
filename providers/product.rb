@@ -50,7 +50,7 @@ def check_installed
   cmd << " /XML:#{node['webpi']['xmlpath']}" if node['webpi']['xmlpath']
   cmd_out = shell_out(cmd, returns: [0, 42])
   unless cmd_out.stderr.empty?
-    Chef::Log.Info(cmd_out.stderr)
+    Chef::Log.info(cmd_out.stderr)
     @install_array = @new_resource.product_id
   else
     @new_resource.product_id.split(',').each do |p|
