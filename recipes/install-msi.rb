@@ -29,7 +29,7 @@ windows_package node['webpi']['msi_package_name'] do
 end.run_action(:install)
 
 # MSI manage PATH
-if system('where WebpiCmd.exe 2>&1 > NUL')
+if powershell_out('Get-Command WebpiCmd.exe').exitstatus == 0
   node.default['webpi']['bin'] = 'WebpiCmd.exe'
 elsif ::File.exist? "#{ENV['ProgramW6432']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
   node.default['webpi']['bin'] = "#{ENV['ProgramW6432']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
