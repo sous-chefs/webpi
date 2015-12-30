@@ -18,8 +18,6 @@
 # limitations under the License.
 #
 
-include_recipe 'windows'
-
 file_name = ::File.basename(node['webpi']['url'])
 installdir = node['webpi']['home']
 

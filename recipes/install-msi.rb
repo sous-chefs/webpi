@@ -18,8 +18,6 @@
 # limitations under the License.
 #
 
-include_recipe 'windows'
-
 msi_file = cached_file(node['webpi']['msi'], node['webpi']['msi_checksum'])
 
 # Do this stuff at compile time so we can build the path and use the exe on this run for the LWRP
