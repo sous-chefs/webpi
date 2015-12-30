@@ -6,7 +6,7 @@ description      'Installs/Configures the Microsoft Web Platform Installer (WebP
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '1.2.9'
 supports         'windows'
-depends          'windows', '>= 1.2.6'
+depends          'windows', '>= 1.39.0'
 
 source_url 'https://github.com/chef-cookbooks/webpi' if respond_to?(:source_url)
 issues_url 'https://github.com/chef-cookbooks/webpi/issues' if respond_to?(:issues_url)
