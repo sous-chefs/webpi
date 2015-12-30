@@ -2,12 +2,16 @@ webpi Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the webpi cookbook.
 
+v1.2.9 (2015-12-30)
+-------------------
+### Improvement
+- Modernization of cookbook supporting travis ci, kitchen convergence testing, style checking and foodcritic rule compliance
+- Removed unnecessary includes of the default recipe in the windows cookbook to eliminate warnings
 
 v1.2.8 (2014-02-14)
 -------------------
 ### Bug
 - **[COOK-3832](https://tickets.chef.io/browse/COOK-3832)** - install-msi recipe should leverage chef cache
-
 
 v1.2.6
 ------
