@@ -36,5 +36,5 @@ elsif ::File.exist? "#{ENV['ProgramFiles']}/Microsoft/Web Platform Installer/Web
   node.default['webpi']['bin'] = "#{ENV['ProgramFiles']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
 else
   Chef::Log.error 'Unable to find Webpi executable'
-  fail "WebpiCmd.exe can't be found"
+  raise "WebpiCmd.exe can't be found"
 end
