@@ -35,7 +35,7 @@ action :install do
       cmd << ' /accepteula' if @new_resource.accept_eula
       cmd << " /XML:#{node['webpi']['xmlpath']}" if node['webpi']['xmlpath']
       cmd << " /Log:#{node['webpi']['log']}"
-      shell_out!(cmd, returns: [0, 42])
+      shell_out!(cmd, returns: @new_resource.returns)
     end
   end
 end
