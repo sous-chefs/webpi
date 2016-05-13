@@ -33,6 +33,7 @@ Microsoft Web Platform Installer (WebPI) automates the installation of Microsoft
 #### Attribute Parameters
 - product_id: name attribute. Specifies the ID of a product to install.
 - accept_eula: specifies that WebpiCmdline should auto-accept EULAs. Default is false.
+- returns: specifies the return value(s) expected for a successful installation. Can be a single integer or array of integers.  Default is [0, 42]
 
 #### Examples
 Install IIS 7 Recommended Configuration (will install IIS 8 on Windows 2012 despite the name)
@@ -50,6 +51,16 @@ Install Windows PowerShell 2.0
 webpi_product 'PowerShell2' do
   accept_eula true
   action :install
+end
+```
+
+Install Windows Azure Powershell 1.0 (will return a 3010 exit code to signify a successful installation that requires a reboot)
+
+```ruby
+webpi_product 'WindowsAzurePowerShellGet' do
+  accept_eula true
+  action :install
+  returns 3010
 end
 ```
 
