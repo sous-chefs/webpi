@@ -32,9 +32,9 @@ action :install do
     registry_key "setuplocalappdata_#{@new_resource.product_id}" do
       key 'HKEY_USERS\.default\software\microsoft\windows\currentversion\explorer\user shell folders'
       values [{
-        :name => "Local AppData",
-        :type => :expand_string,
-        :data => '%TEMP%'
+        name: 'Local AppData',
+        type: :expand_string,
+        data: '%TEMP%'
       }]
     end
 
@@ -52,15 +52,13 @@ action :install do
     registry_key "restoreappdata_#{@new_resource.product_id}" do
       key 'HKEY_USERS\.default\software\microsoft\windows\currentversion\explorer\user shell folders'
       values [{
-        :name => "Local AppData",
-        :type => :expand_string,
-        :data => '%USERPROFILE%\AppData\Local'
+        name: 'Local AppData',
+        type: :expand_string,
+        data: '%USERPROFILE%\AppData\Local'
       }]
     end
-
   end
 end
-
 
 action_class do
   require 'chef/mixin/shell_out'
