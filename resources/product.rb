@@ -17,9 +17,88 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+resource_name :webpi_product
+provides :webpi_product
 
-actions :install
-default_action :install
+property :product_id, String, name_property: true
+property :accept_eula, [TrueClass, FalseClass], default: false
 
-attribute :product_id, kind_of: String, name_attribute: true
-attribute :accept_eula, kind_of: [TrueClass, FalseClass], default: false
+action :install do
+  check_installed
+
+  if @install_list.empty?
+    Chef::Log.debug("#{@new_resource} product already exists - nothing to do")
+  else
+    registry_key "setuplocalappdata_#{@new_resource.product_id}" do
+      key 'HKEY_USERS\.default\software\microsoft\windows\currentversion\explorer\user shell folders'
+      values [{
+        :name => "Local AppData",
+        :type => :expand_string,
+        :data => '%TEMP%'
+      }]
+    end
+
+    cmd = "\"#{webpicmd}\" /Install"
+    cmd << " /products:#{@install_list} /suppressreboot"
+    cmd << ' /accepteula' if @new_resource.accept_eula
+    cmd << " /XML:#{node['webpi']['xmlpath']}" if node['webpi']['xmlpath']
+    cmd << " /Log:#{node['webpi']['log']}"
+    execute "#{@new_resource} added new product '#{@install_list}'" do
+      command cmd
+      live_stream false
+      returns [0, 42, 3010] # 3010: reboot required.
+    end
+
+    registry_key "restoreappdata_#{@new_resource.product_id}" do
+      key 'HKEY_USERS\.default\software\microsoft\windows\currentversion\explorer\user shell folders'
+      values [{
+        :name => "Local AppData",
+        :type => :expand_string,
+        :data => '%USERPROFILE%\AppData\Local'
+      }]
+    end
+
+  end
+end
+
+
+action_class do
+  require 'chef/mixin/shell_out'
+
+  include Chef::Mixin::ShellOut
+  include Windows::Helper
+
+  def whyrun_supported?
+    true
+  end
+
+  # Method checks webpi to see what's installed.
+  # Then loops through each product, and if it's missing, adds it to a list to be installed
+  def check_installed
+    @install_array = []
+    cmd = "\"#{webpicmd}\" /List /ListOption:Installed"
+    cmd << " /XML:#{node['webpi']['xmlpath']}" if node['webpi']['xmlpath']
+    cmd_out = shell_out(cmd, returns: [0, 42])
+    if cmd_out.stderr.empty?
+      @new_resource.product_id.split(',').each do |p|
+        # Example output
+        # HTTPErrors           IIS: HTTP Errors
+        # Example output returned via grep
+        # \r    \rHTTPErrors           IIS: HTTP Errors\r\ns
+        if cmd_out.stdout.lines.grep(/^\s{6}#{p}\s.*$/i).empty?
+          @install_array << p
+        end
+      end
+    else
+      Chef::Log.info(cmd_out.stderr)
+      @install_array = @new_resource.product_id
+    end
+    @install_list = @install_array.join(',')
+  end
+
+  def webpicmd
+    @webpicmd ||= begin
+      node['webpi']['bin']
+    end
+  end
+end
