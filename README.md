@@ -60,7 +60,7 @@ Downloads and unzips `WebpiCmdLine.exe` to the location specified by `node['webp
 ## License & Authors
 **Author:** Cookbook Engineering Team ([cookbooks@chef.io](mailto:cookbooks@chef.io))
 
-**Copyright:** 2011-2015, Chef Software, Inc.
+**Copyright:** 2011-2016, Chef Software, Inc.
 
 ```text
 Licensed under the Apache License, Version 2.0 (the "License");
