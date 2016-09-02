@@ -1,6 +1,12 @@
 # webpi Cookbook CHANGELOG
 This file is used to list changes made in each version of the webpi cookbook.
 
+## 2.1.0 (2016-09-01)
+- Resolve rubocop warnings
+- Add use_inline_resources to the provider
+- Add chef_version metadata
+- Testing updates
+
 ## v2.0.0 (2016-01-04)
 - Install WebPI 5.0 by default
 - Fix runs on Chef 11 systems
