@@ -23,6 +23,8 @@ require 'chef/mixin/shell_out'
 include Chef::Mixin::ShellOut
 include Windows::Helper
 
+use_inline_resources
+
 action :install do
   check_installed
 
