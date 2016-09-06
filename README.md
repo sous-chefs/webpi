@@ -5,14 +5,13 @@ Microsoft Web Platform Installer (WebPI) automates the installation of Microsoft
 
 ## Requirements
 ### Platforms
-- Windows Vista
 - Windows 7
-- Windows Server 2008 (R1, R2)
+- Windows Server 2008 R2
 - Windows 8, 8.1
 - Windows Server 2012 (R1, R2)
 
 ### Chef
-- Chef 11+
+- Chef 12+
 
 ### Cookbooks
 - windows

@@ -8,6 +8,6 @@ version          '2.1.0'
 supports         'windows'
 depends          'windows', '>= 1.39.0'
 
-source_url 'https://github.com/chef-cookbooks/webpi' if respond_to?(:source_url)
-issues_url 'https://github.com/chef-cookbooks/webpi/issues' if respond_to?(:issues_url)
-chef_version '>= 11' if respond_to?(:chef_version)
+source_url 'https://github.com/chef-cookbooks/webpi'
+issues_url 'https://github.com/chef-cookbooks/webpi/issues'
+chef_version '>= 12'
