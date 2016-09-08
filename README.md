@@ -11,7 +11,7 @@ Microsoft Web Platform Installer (WebPI) automates the installation of Microsoft
 - Windows Server 2012 (R1, R2)
 
 ### Chef
-- Chef 12+
+- Chef 12.1+
 
 ### Cookbooks
 - windows
