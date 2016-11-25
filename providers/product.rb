@@ -1,6 +1,6 @@
 #
 # Author:: Seth Chisamore (<schisamo@chef.io>)
-# Cookbook Name:: webpi
+# Cookbook:: webpi
 # Provider:: product
 #
 # Copyright:: 2011-2016, Chef Software, Inc.
