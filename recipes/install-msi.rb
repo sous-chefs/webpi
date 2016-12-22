@@ -28,7 +28,7 @@ end.run_action(:install)
 
 # MSI manage PATH
 ::Chef::Recipe.send(:include, Chef::Mixin::PowershellOut)
-if powershell_out('Get-Command WebpiCmd.exe').exitstatus == 0
+if powershell_out('Get-Command WebpiCmd.exe').exitstatus.zero?
   node.default['webpi']['bin'] = 'WebpiCmd.exe'
 elsif ::File.exist? "#{ENV['ProgramW6432']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
   node.default['webpi']['bin'] = "#{ENV['ProgramW6432']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
