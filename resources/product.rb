@@ -23,3 +23,4 @@ default_action :install
 
 attribute :product_id, kind_of: String, name_attribute: true
 attribute :accept_eula, kind_of: [TrueClass, FalseClass], default: false
+attribute :returns, kind_of: [Integer, Array], default: [0, 42]
