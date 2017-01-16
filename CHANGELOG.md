@@ -1,6 +1,20 @@
 # webpi Cookbook CHANGELOG
 This file is used to list changes made in each version of the webpi cookbook.
 
+## 3.1.0 (2016-12-27)
+
+- add returns argument to webpi_product resource
+- Update the minimum chef requirement to 12.1 from 12.0
+
+## 3.0.0 (2016-09-06)
+- Remove support for Chef 11
+
+## 2.1.0 (2016-09-01)
+- Resolve rubocop warnings
+- Add use_inline_resources to the provider
+- Add chef_version metadata
+- Testing updates
+
 ## v2.0.0 (2016-01-04)
 - Install WebPI 5.0 by default
 - Fix runs on Chef 11 systems

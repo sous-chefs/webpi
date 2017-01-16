@@ -1,9 +1,9 @@
 #
 # Author:: Seth Chisamore (<schisamo@chef.io>)
-# Cookbook Name:: webpi
+# Cookbook:: webpi
 # Resource:: product
 #
-# Copyright:: 2011, Chef Software, Inc.
+# Copyright:: 2011-2016, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ provides :webpi_product
 
 property :product_id, String, name_property: true
 property :accept_eula, [TrueClass, FalseClass], default: false
+property :returns, [Integer, Array], default: [0, 42]
 
 action :install do
   check_installed
@@ -76,7 +77,7 @@ action_class do
     @install_array = []
     cmd = "\"#{webpicmd}\" /List /ListOption:Installed"
     cmd << " /XML:#{node['webpi']['xmlpath']}" if node['webpi']['xmlpath']
-    cmd_out = shell_out(cmd, returns: [0, 42])
+    cmd_out = shell_out(cmd, returns:  @new_resource.returns)
     if cmd_out.stderr.empty?
       @new_resource.product_id.split(',').each do |p|
         # Example output

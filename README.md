@@ -5,14 +5,13 @@ Microsoft Web Platform Installer (WebPI) automates the installation of Microsoft
 
 ## Requirements
 ### Platforms
-- Windows Vista
 - Windows 7
-- Windows Server 2008 (R1, R2)
+- Windows Server 2008 R2
 - Windows 8, 8.1
 - Windows Server 2012 (R1, R2)
 
 ### Chef
-- Chef 11+
+- Chef 12.1+
 
 ### Cookbooks
 - windows
@@ -33,6 +32,7 @@ Microsoft Web Platform Installer (WebPI) automates the installation of Microsoft
 #### Attribute Parameters
 - product_id: name attribute. Specifies the ID of a product to install.
 - accept_eula: specifies that WebpiCmdline should auto-accept EULAs. Default is false.
+- returns: specifies the return value(s) expected for a successful installation. Can be a single integer or array of integers.  Default is [0, 42]
 
 #### Examples
 Install IIS 7 Recommended Configuration (will install IIS 8 on Windows 2012 despite the name)
@@ -53,6 +53,16 @@ webpi_product 'PowerShell2' do
 end
 ```
 
+Install Windows Azure Powershell 1.0 (will return a 3010 exit code to signify a successful installation that requires a reboot)
+
+```ruby
+webpi_product 'WindowsAzurePowerShellGet' do
+  accept_eula true
+  action :install
+  returns 3010
+end
+```
+
 ## Usage
 ### default
 Downloads and unzips `WebpiCmdLine.exe` to the location specified by `node['webpi']['home']`.  `WebpiCmdLine.exe` is used required by the `webpi_product` LWRP for taking all actions.
@@ -60,7 +70,7 @@ Downloads and unzips `WebpiCmdLine.exe` to the location specified by `node['webp
 ## License & Authors
 **Author:** Cookbook Engineering Team ([cookbooks@chef.io](mailto:cookbooks@chef.io))
 
-**Copyright:** 2011-2015, Chef Software, Inc.
+**Copyright:** 2011-2016, Chef Software, Inc.
 
 ```text
 Licensed under the Apache License, Version 2.0 (the "License");
