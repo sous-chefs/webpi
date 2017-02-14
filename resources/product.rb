@@ -31,7 +31,7 @@ action :install do
     Chef::Log.debug("#{@new_resource} product already exists - nothing to do")
   else
     registry_key "setuplocalappdata_#{@new_resource.product_id}" do
-      key 'HKEY_USERS\.default\software\microsoft\windows\currentversion\explorer\user shell folders'
+      key 'HKEY_CURRENT_USER\software\microsoft\windows\currentversion\explorer\user shell folders'
       values [{
         name: 'Local AppData',
         type: :expand_string,
@@ -51,7 +51,7 @@ action :install do
     end
 
     registry_key "restoreappdata_#{@new_resource.product_id}" do
-      key 'HKEY_USERS\.default\software\microsoft\windows\currentversion\explorer\user shell folders'
+      key 'HKEY_CURRENT_USER\software\microsoft\windows\currentversion\explorer\user shell folders'
       values [{
         name: 'Local AppData',
         type: :expand_string,
