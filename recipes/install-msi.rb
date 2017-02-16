@@ -21,14 +21,14 @@
 msi_file = cached_file(node['webpi']['msi'], node['webpi']['msi_checksum'])
 
 # Do this stuff at compile time so we can build the path and use the exe on this run for the LWRP
-windows_package node['webpi']['msi_package_name'] do
+package node['webpi']['msi_package_name'] do
   source msi_file
   action :nothing
 end.run_action(:install)
 
 # MSI manage PATH
 ::Chef::Recipe.send(:include, Chef::Mixin::PowershellOut)
-if powershell_out('Get-Command WebpiCmd.exe').exitstatus.zero?
+if powershell_out('Get-Command WebpiCmd.exe').exitstatus == 0
   node.default['webpi']['bin'] = 'WebpiCmd.exe'
 elsif ::File.exist? "#{ENV['ProgramW6432']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
   node.default['webpi']['bin'] = "#{ENV['ProgramW6432']}/Microsoft/Web Platform Installer/WebpiCmd.exe"
