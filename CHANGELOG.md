@@ -1,6 +1,10 @@
 # webpi Cookbook CHANGELOG
 This file is used to list changes made in each version of the webpi cookbook.
 
+## 4.0.0 (2017-02-18)
+
+- Use package vs. windows_package resource which increases the requirement to Chef 12.6+
+
 ## 3.1.0 (2016-12-27)
 
 - add returns argument to webpi_product resource
