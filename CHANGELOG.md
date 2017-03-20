@@ -1,6 +1,11 @@
 # webpi Cookbook CHANGELOG
 This file is used to list changes made in each version of the webpi cookbook.
 
+## 4.1.0 (2017-03-20)
+
+- Test with Local Delivery instead of Rake
+- Require windows 2.0 or later
+
 ## 4.0.0 (2017-02-18)
 
 - Use package vs. windows_package resource which increases the requirement to Chef 12.6+

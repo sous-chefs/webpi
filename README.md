@@ -1,6 +1,6 @@
 # webpi Cookbook
 
-[![Build Status](https://travis-ci.org/chef-cookbooks/webpi.svg?branch=master)](http://travis-ci.org/chef-cookbooks/webpi) [![Cookbook Version](https://img.shields.io/cookbook/v/webpi.svg)](https://supermarket.chef.io/cookbooks/webpi)
+[![Build status](https://ci.appveyor.com/api/projects/status/reuore13vgktbk6o/branch/master?svg=true)](https://ci.appveyor.com/project/ChefWindowsCookbooks/webpi/branch/master) [![Cookbook Version](https://img.shields.io/cookbook/v/webpi.svg)](https://supermarket.chef.io/cookbooks/webpi)
 
 Microsoft Web Platform Installer (WebPI) automates the installation of Microsoft's entire Web Platform. This cookbook makes it easy to get WebpiCmdLine.exe the lightweight CLI version of WebPI onto a Windows node. It also exposes a resource for installing WebPI products idempotently.
 
