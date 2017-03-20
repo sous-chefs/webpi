@@ -19,7 +19,7 @@ Microsoft Web Platform Installer (WebPI) automates the installation of Microsoft
 
 ### Cookbooks
 
-- windows
+- windows 2.0+
 
 ## Attributes
 

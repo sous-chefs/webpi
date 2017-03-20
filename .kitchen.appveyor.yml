@@ -14,9 +14,6 @@ provisioner:
 platforms:
   - name: windows-2012R2
 
-verifier:
-  name: pester
-
 suites:
   - name: default
     run_list:
