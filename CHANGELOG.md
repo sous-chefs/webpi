@@ -1,6 +1,10 @@
 # webpi Cookbook CHANGELOG
 This file is used to list changes made in each version of the webpi cookbook.
 
+## 4.1.1 (2017-03-29)
+
+- Resolve incompatibility with windows 3.0 cookbook
+
 ## 4.1.0 (2017-03-20)
 
 - Test with Local Delivery instead of Rake
