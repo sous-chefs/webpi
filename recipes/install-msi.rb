@@ -18,11 +18,10 @@
 # limitations under the License.
 #
 
-msi_file = cached_file(node['webpi']['msi'], node['webpi']['msi_checksum'])
-
 # Do this stuff at compile time so we can build the path and use the exe on this run for the LWRP
-package node['webpi']['msi_package_name'] do
-  source msi_file
+windows_package node['webpi']['msi_package_name'] do
+  source node['webpi']['msi']
+  checksum node['webpi']['msi_checksum']
   action :nothing
 end.run_action(:install)
 
