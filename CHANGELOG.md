@@ -1,6 +1,11 @@
 # webpi Cookbook CHANGELOG
 This file is used to list changes made in each version of the webpi cookbook.
 
+## 4.2.0 (2017-04-05)
+
+- Convert the install LWRP to a custom resource
+- Added testing of the resource in appveyer
+
 ## 4.1.1 (2017-03-29)
 
 - Resolve incompatibility with windows 3.0 cookbook
