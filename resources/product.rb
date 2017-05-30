@@ -41,7 +41,7 @@ action :install do
   end
 end
 
-action_class.class_eval do
+action_class do
   # Method checks webpi to see what's installed.
   # Then loops through each product, and if it's missing, adds it to a list to be installed
   def prods_to_be_installed
