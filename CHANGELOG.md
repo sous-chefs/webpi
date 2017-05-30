@@ -1,6 +1,10 @@
 # webpi Cookbook CHANGELOG
 This file is used to list changes made in each version of the webpi cookbook.
 
+## 4.2.1 (2017-05-30)
+
+- Use action_class instead of action_class.class_eval
+
 ## 4.2.0 (2017-04-05)
 
 - Convert the install LWRP to a custom resource
