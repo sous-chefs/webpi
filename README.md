@@ -2,7 +2,8 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/reuore13vgktbk6o/branch/master?svg=true)](https://ci.appveyor.com/project/ChefWindowsCookbooks/webpi/branch/master) [![Cookbook Version](https://img.shields.io/cookbook/v/webpi.svg)](https://supermarket.chef.io/cookbooks/webpi)
 
-Microsoft Web Platform Installer (WebPI) automates the installation of Microsoft's entire Web Platform. This cookbook makes it easy to get WebpiCmdLine.exe the lightweight CLI version of WebPI onto a Windows node. It also exposes a resource for installing WebPI products idempotently.
+Microsoft Web Platform Installer (WebPI) automates the installation of Microsoft's entire Web Platform. This cookbook makes it easy to get WebpiCmdLine.exe the [lightweight CLI version](https://docs.microsoft.com/en-us/iis/install/web-platform-installer/web-platform-installer-v4-command-line-webpicmdexe-rtw-release) of WebPI onto a Windows node. It also exposes a resource for installing WebPI products idempotently.
+
 
 ## Requirements
 
@@ -74,11 +75,45 @@ webpi_product 'WindowsAzurePowerShellGet' do
 end
 ```
 
+### webpi_application
+
+#### Actions
+
+- :install: install an application using WebpiCmdLine
+
+#### Attribute Parameters
+
+- app_id: name attribute. Specifies the ID of an application to install.
+- accept_eula: specifies that WebpiCmdline should auto-accept EULAs. Default is false.
+- returns: specifies the return value(s) expected for a successful installation. Can be a single integer or array of integers. Default is [0, 42]
+
+#### Examples
+
+Installing WebMatrix while Accepting the EULA
+Ex: >WebPICMD.exe /Install /Products:WebMatrix /AcceptEula 
+
+```ruby
+webpi_application 'WebMatrix' do
+  accept_eula true
+  action  :install
+end
+```
+
+Installing an application to MicrosoftAzure ServiceFabric CoreSDK
+Ex: >WebPICMD.exe /Install /Application:MicrosoftAzure-ServiceFabric-CoreSDK /AcceptEula 
+
+```ruby
+webpi_application 'MicrosoftAzure-ServiceFabric-CoreSDK' do
+  accept_eula true
+  action :install
+end
+```
+
 ## Usage
 
 ### default
 
-Downloads and unzips `WebpiCmdLine.exe` to the location specified by `node['webpi']['home']`. `WebpiCmdLine.exe` is used required by the `webpi_product` LWRP for taking all actions.
+Downloads and unzips `WebpiCmdLine.exe` to the location specified by `node['webpi']['home']`. `WebpiCmdLine.exe` is used required by the `webpi_product` and `webpi_application` LWRPs for taking all actions.
 
 ## License & Authors
 
