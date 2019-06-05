@@ -10,6 +10,8 @@ driver:
 provisioner:
   name: chef_zero
   deprecations_as_errors: true
+  client_rb:
+    chef_license: accept
 
 platforms:
   - name: windows-2012R2
