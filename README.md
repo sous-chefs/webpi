@@ -74,6 +74,41 @@ webpi_product 'WindowsAzurePowerShellGet' do
 end
 ```
 
+
+### webpi_application
+
+#### Actions
+
+- :install: install an application using WebpiCmdLine
+
+#### Attribute Parameters
+
+- app_id: name attribute. Specifies the ID of an application to install.
+- accept_eula: specifies that WebpiCmdline should auto-accept EULAs. Default is false.
+- returns: specifies the return value(s) expected for a successful installation. Can be a single integer or array of integers. Default is [0, 42]
+
+#### Examples
+Installing WebMatrix while Accepting the EULA
+Ex: >WebPICMD.exe /Install /Products:WebMatrix /AcceptEula 
+
+```ruby
+webpi_application 'WebMatrix' do
+  accept_eula true
+  action  :install
+end
+```
+
+Installing an application to MicrosoftAzure ServiceFabric CoreSDK
+Ex: >WebPICMD.exe /Install /Application:MicrosoftAzure-ServiceFabric-CoreSDK /AcceptEula 
+
+```ruby
+webpi_application 'MicrosoftAzure-ServiceFabric-CoreSDK' do
+  accept_eula true
+  action :install
+end
+```
+
+
 ## Usage
 
 ### default
