@@ -3,7 +3,7 @@
 # Cookbook:: webpi
 # Resource:: application
 #
-# Copyright:: 2011-2017, Chef Software, Inc.
+# Copyright:: 2011-2019, Madan Kapoor
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,8 +22,10 @@ property :app_id, String, name_property: true
 property :accept_eula, [true, false], default: false
 property :suppress_reboot, [true, false], default: true
 property :iis_express, [true, false], default: false
-property :other_options, String, default: ''
+property :other_options, String, default: '' # Can be used for Language or other options depending on application
 property :returns, [Integer, Array], default: [0, 42]
+property :sql_password, String, sensitive: true, default: '' # To be used only if required
+property :mysql_password, String, sensitive: true, default: '' # To be used only if required
 
 include Windows::Helper
 
@@ -41,6 +43,8 @@ action :install do
       cmd << ' /accepteula' if new_resource.accept_eula
       cmd << " /XML:#{node['webpi']['xmlpath']}" if node['webpi']['xmlpath']
       cmd << " /Log:#{node['webpi']['log']}"
+      cmd << " /SQLPassword:#{new_resource.sql_password} "     if new_resource.sql_password != ''
+      cmd << " /MySQLPassword:#{new_resource.mysql_password} " if new_resource.mysql_password != ''
       cmd << new_resource.other_options
       shell_out!(cmd, returns: new_resource.returns)
     end

@@ -85,21 +85,25 @@ end
 
 - app_id: name attribute. Specifies the ID of an application to install.
 - accept_eula: specifies that WebpiCmdline should auto-accept EULAs. Default is false.
+- suppress_reboot: specifies if we need to stop or suppress the reboot. Default is True.
+- iis_express: used only with applications that intergrate with IIS. Default value is False.
+- other_options: Any other options related to applications needed to be appended. Default value is empty string.
 - returns: specifies the return value(s) expected for a successful installation. Can be a single integer or array of integers. Default is [0, 42]
 
 #### Examples
-Installing WebMatrix while Accepting the EULA
-Ex: >WebPICMD.exe /Install /Products:WebMatrix /AcceptEula 
+Installing WebMatrix while Accepting the EULA and also install app to IISExpress
+Ex: >WebPICMD.exe /Install /Products:WebMatrix /AcceptEula /IISExpress
 
 ```ruby
 webpi_application 'WebMatrix' do
   accept_eula true
+  iis_express true
   action  :install
 end
 ```
 
 Installing an application to MicrosoftAzure ServiceFabric CoreSDK
-Ex: >WebPICMD.exe /Install /Application:MicrosoftAzure-ServiceFabric-CoreSDK /AcceptEula 
+Ex: >WebPICMD.exe /Install /Applications:MicrosoftAzure-ServiceFabric-CoreSDK /AcceptEula 
 
 ```ruby
 webpi_application 'MicrosoftAzure-ServiceFabric-CoreSDK' do
@@ -107,7 +111,6 @@ webpi_application 'MicrosoftAzure-ServiceFabric-CoreSDK' do
   action :install
 end
 ```
-
 
 ## Usage
 

@@ -20,3 +20,9 @@ webpi_application 'MicrosoftAzure-ServiceFabric-CoreSDK' do
   accept_eula true
   action :install
 end
+
+webpi_application 'nopCommerce' do
+  accept_eula  true
+  sql_password 'password' # To be set from encrypted databag
+  action       :install
+end

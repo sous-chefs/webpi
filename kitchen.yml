@@ -11,6 +11,7 @@ transport:
 provisioner:
   name: chef_zero
   deprecations_as_errors: true
+  chef_license: accept
   client_rb:
     chef_license: accept
 
