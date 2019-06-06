@@ -87,6 +87,8 @@ end
 - accept_eula: specifies that WebpiCmdline should auto-accept EULAs. Default is false.
 - suppress_reboot: specifies if we need to stop or suppress the reboot. Default is True.
 - iis_express: used only with applications that intergrate with IIS. Default value is False.
+- mysql_password: Used to give a mysql password for application which requires it.
+- sql_password: Used to give a sql password for application which requires it.
 - other_options: Any other options related to applications needed to be appended. Default value is empty string.
 - returns: specifies the return value(s) expected for a successful installation. Can be a single integer or array of integers. Default is [0, 42]
 
