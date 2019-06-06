@@ -21,8 +21,8 @@ webpi_application 'MicrosoftAzure-ServiceFabric-CoreSDK' do
   action :install
 end
 
-webpi_application 'nopCommerce' do
-  accept_eula  true
-  sql_password 'password' # To be set from encrypted databag
-  action       :install
+webpi_application 'AcquiaDrupal' do
+  accept_eula    true
+  mysql_password 'password' # To be set from encrypted databag
+  action         :install
 end

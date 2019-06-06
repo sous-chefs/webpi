@@ -112,6 +112,16 @@ webpi_application 'MicrosoftAzure-ServiceFabric-CoreSDK' do
 end
 ```
 
+
+```ruby
+password = data_bag_item('secrets','mysqlpassword')['password'] # Should be a encrypted data bag
+webpi_application 'AcquiaDrupal' do
+  accept_eula    true
+  mysql_password password # To be set from encrypted databag
+  action         :install
+end
+```
+
 ## Usage
 
 ### default
