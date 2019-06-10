@@ -26,6 +26,7 @@ property :other_options, String # Can be used for Language or other options depe
 property :returns, [Integer, Array], default: [0, 42]
 property :sql_password, String, sensitive: true, default: '' # To be used only if required
 property :mysql_password, String, sensitive: true, default: '' # To be used only if required
+property :xml_path, [String]
 
 include Windows::Helper
 
@@ -41,7 +42,7 @@ action :install do
       cmd << ' /suppressreboot' if new_resource.suppress_reboot
       cmd << ' /IISExpress' if new_resource.iis_express
       cmd << ' /accepteula' if new_resource.accept_eula
-      cmd << " /XML:#{node['webpi']['xmlpath']}" if node['webpi']['xmlpath']
+      cmd << " /XML:#{new_resource.xml_path}" if new_resource.xml_path
       cmd << " /Log:#{node['webpi']['log']}"
       cmd << " /SQLPassword:#{new_resource.sql_password} "     if new_resource.sql_password != ''
       cmd << " /MySQLPassword:#{new_resource.mysql_password} " if new_resource.mysql_password != ''
@@ -56,8 +57,8 @@ action_class do
   # Then loops through each product, and if it's missing, adds it to a list to be installed
   def apps_to_be_installed
     install_array = []
-    cmd = "\"#{webpicmd}\" /List /ListOption:Installed"
-    cmd << " /XML:#{node['webpi']['xmlpath']}" if node['webpi']['xmlpath']
+    cmd = "\"#{new_resource.webpi_cmd_path}\" /List /ListOption:Installed"
+    cmd << " /XML:#{new_resource.xml_path}" if new_resource.xml_path
     cmd_out = shell_out(cmd, returns: [0, 42])
     if cmd_out.stderr.empty?
       new_resource.app_id.split(',').each do |p|
