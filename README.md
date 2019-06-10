@@ -30,7 +30,7 @@ Microsoft Web Platform Installer (WebPI) automates the installation of Microsoft
 - `node['webpi']['msi']` - Location of msi file to use.
 - `node['webpi']['msi_package_name']` - Windows package name, found in registry, for msi. Defaults to "Microsoft Web Platform Installer 4.5"
 
-## Resource/Provider
+## Resources
 
 ### webpi_product
 
@@ -38,9 +38,9 @@ Microsoft Web Platform Installer (WebPI) automates the installation of Microsoft
 
 - :install: install a product using WebpiCmdLine
 
-#### Attribute Parameters
+#### Properties
 
-- product_id: name attribute. Specifies the ID of a product to install.
+- product_id: name property. Specifies the ID of a product to install.
 - accept_eula: specifies that WebpiCmdline should auto-accept EULAs. Default is false.
 - returns: specifies the return value(s) expected for a successful installation. Can be a single integer or array of integers. Default is [0, 42]
 
@@ -81,9 +81,9 @@ end
 
 - :install: install an application using WebpiCmdLine
 
-#### Attribute Parameters
+#### Properties
 
-- app_id: name attribute. Specifies the ID of an application to install.
+- app_id: name property. Specifies the ID of an application to install.
 - accept_eula: specifies that WebpiCmdline should auto-accept EULAs. Default is false.
 - suppress_reboot: specifies if we need to stop or suppress the reboot. Default is True.
 - iis_express: used only with applications that intergrate with IIS. Default value is False.
@@ -134,7 +134,7 @@ Downloads and unzips `WebpiCmdLine.exe` to the location specified by `node['webp
 
 **Author:** Cookbook Engineering Team ([cookbooks@chef.io](mailto:cookbooks@chef.io))
 
-**Copyright:** 2011-2016, Chef Software, Inc.
+**Copyright:** 2011-2019, Chef Software, Inc.
 
 ```text
 Licensed under the Apache License, Version 2.0 (the "License");
