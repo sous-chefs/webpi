@@ -48,7 +48,7 @@ action :install do
       cmd << " /Log:#{new_resource.webpi_log_path}"
       cmd << " /SQLPassword:#{new_resource.sql_password}" if new_resource.sql_password
       cmd << " /MySQLPassword:#{new_resource.mysql_password}" if new_resource.mysql_password
-      cmd << new_resource.other_options
+      cmd << " #{new_resource.other_options}"
       shell_out!(cmd, returns: new_resource.returns)
     end
   end
