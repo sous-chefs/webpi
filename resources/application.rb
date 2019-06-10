@@ -26,7 +26,9 @@ property :other_options, String # Can be used for Language or other options depe
 property :returns, [Integer, Array], default: [0, 42]
 property :sql_password, String, sensitive: true # To be used only if required
 property :mysql_password, String, sensitive: true # To be used only if required
-property :xml_path, [String]
+property :webpi_cmd_path, String, default: "#{ENV['SYSTEMDRIVE']}\\webpi\\WebpiCmd.exe"
+property :webpi_log_path, String, default: lazy { "#{Chef::Config[:file_cache_path]}/WebPI.log" }
+property :xml_path, String
 
 include Windows::Helper
 
@@ -37,13 +39,13 @@ action :install do
     Chef::Log.debug("#{new_resource.app_id} application already exists - nothing to do")
   else
     converge_by("#{new_resource} added new application '#{install_list}'") do
-      cmd = "\"#{webpicmd}\" /Install"
+      cmd = "\"#{new_resource.webpi_cmd_path}\" /Install"
       cmd << " /application:#{install_list}"
       cmd << ' /suppressreboot' if new_resource.suppress_reboot
       cmd << ' /IISExpress' if new_resource.iis_express
       cmd << ' /accepteula' if new_resource.accept_eula
       cmd << " /XML:#{new_resource.xml_path}" if new_resource.xml_path
-      cmd << " /Log:#{node['webpi']['log']}"
+      cmd << " /Log:#{new_resource.webpi_log_path}"
       cmd << " /SQLPassword:#{new_resource.sql_password}" if new_resource.sql_password
       cmd << " /MySQLPassword:#{new_resource.mysql_password}" if new_resource.mysql_password
       cmd << new_resource.other_options
@@ -75,11 +77,5 @@ action_class do
       install_array = new_resource.app_id
     end
     install_array.join(',')
-  end
-
-  def webpicmd
-    @webpicmd ||= begin
-      node['webpi']['bin']
-    end
   end
 end

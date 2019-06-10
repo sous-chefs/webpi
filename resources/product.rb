@@ -20,7 +20,10 @@
 
 property :product_id, String, name_property: true
 property :accept_eula, [true, false], default: false
+property :webpi_cmd_path, String
+property :webpi_log_path, String, default: lazy { "#{Chef::Config[:file_cache_path]}/WebPI.log" }
 property :xml_path, String
+property :webpi_cmd_path, String, default: "#{ENV['SYSTEMDRIVE']}\\webpi\\WebpiCmd.exe"
 property :returns, [Integer, Array], default: [0, 42]
 
 include Windows::Helper
@@ -32,11 +35,11 @@ action :install do
     Chef::Log.debug("#{new_resource.product_id} product already exists - nothing to do")
   else
     converge_by("#{new_resource} added new product '#{install_list}'") do
-      cmd = "\"#{webpicmd}\" /Install"
+      cmd = "\"#{new_resource.webpi_cmd_path}\" /Install"
       cmd << " /products:#{install_list} /suppressreboot"
       cmd << ' /accepteula' if new_resource.accept_eula
-      cmd << " /Log:#{node['webpi']['log']}"
       cmd << " /XML:#{new_resource.xml_path}" if new_resource.xml_path
+      cmd << " /Log:#{new_resource.webpi_log_path}"
       shell_out!(cmd, returns: new_resource.returns)
     end
   end
@@ -65,11 +68,5 @@ action_class do
       install_array = new_resource.product_id
     end
     install_array.join(',')
-  end
-
-  def webpicmd
-    @webpicmd ||= begin
-      node['webpi']['bin']
-    end
   end
 end
