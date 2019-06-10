@@ -24,8 +24,8 @@ property :suppress_reboot, [true, false], default: true
 property :iis_express, [true, false], default: false
 property :other_options, String # Can be used for Language or other options depending on application
 property :returns, [Integer, Array], default: [0, 42]
-property :sql_password, String, sensitive: true, default: '' # To be used only if required
-property :mysql_password, String, sensitive: true, default: '' # To be used only if required
+property :sql_password, String, sensitive: true # To be used only if required
+property :mysql_password, String, sensitive: true # To be used only if required
 property :xml_path, [String]
 
 include Windows::Helper
@@ -44,8 +44,8 @@ action :install do
       cmd << ' /accepteula' if new_resource.accept_eula
       cmd << " /XML:#{new_resource.xml_path}" if new_resource.xml_path
       cmd << " /Log:#{node['webpi']['log']}"
-      cmd << " /SQLPassword:#{new_resource.sql_password} "     if new_resource.sql_password != ''
-      cmd << " /MySQLPassword:#{new_resource.mysql_password} " if new_resource.mysql_password != ''
+      cmd << " /SQLPassword:#{new_resource.sql_password}" if new_resource.sql_password
+      cmd << " /MySQLPassword:#{new_resource.mysql_password}" if new_resource.mysql_password
       cmd << new_resource.other_options
       shell_out!(cmd, returns: new_resource.returns)
     end
