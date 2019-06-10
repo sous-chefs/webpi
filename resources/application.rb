@@ -22,7 +22,7 @@ property :app_id, String, name_property: true
 property :accept_eula, [true, false], default: false
 property :suppress_reboot, [true, false], default: true
 property :iis_express, [true, false], default: false
-property :other_options, String, default: '' # Can be used for Language or other options depending on application
+property :other_options, String # Can be used for Language or other options depending on application
 property :returns, [Integer, Array], default: [0, 42]
 property :sql_password, String, sensitive: true, default: '' # To be used only if required
 property :mysql_password, String, sensitive: true, default: '' # To be used only if required
