@@ -3,7 +3,7 @@
 # Cookbook:: webpi
 # Recipe:: install-msi
 #
-# Copyright:: 2011-2017, Chef Software, Inc.
+# Copyright:: 2011-2019, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ windows_package node['webpi']['msi_package_name'] do
 end.run_action(:install)
 
 # MSI manage PATH
-::Chef::Recipe.send(:include, Chef::Mixin::PowershellOut)
+::Chef::DSL::Recipe.send(:include, Chef::Mixin::PowershellOut)
 if powershell_out('Get-Command WebpiCmd.exe').exitstatus == 0
   node.default['webpi']['bin'] = 'WebpiCmd.exe'
 elsif ::File.exist? "#{ENV['ProgramW6432']}/Microsoft/Web Platform Installer/WebpiCmd.exe"

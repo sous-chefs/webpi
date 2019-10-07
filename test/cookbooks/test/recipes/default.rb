@@ -2,7 +2,7 @@
 # Cookbook:: test
 # Recipe:: default
 #
-# Copyright:: 2017, Chef Software, Inc.
+# Copyright:: 2017-2019, Chef Software, Inc.
 
 include_recipe 'webpi::default'
 
