@@ -19,7 +19,7 @@
 #
 
 property :product_id, String, name_property: true
-property :accept_eula, [true, false], default: false
+property :accept_eula, [TrueClass, FalseClass], default: false
 property :webpi_cmd_path, String
 property :webpi_log_path, String, default: lazy { "#{Chef::Config[:file_cache_path]}/WebPI.log" }
 property :xml_path, String

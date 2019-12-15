@@ -19,9 +19,9 @@
 #
 
 property :app_id, String, name_property: true
-property :accept_eula, [true, false], default: false
-property :suppress_reboot, [true, false], default: true
-property :iis_express, [true, false], default: false
+property :accept_eula, [TrueClass, FalseClass], default: false
+property :suppress_reboot, [TrueClass, FalseClass], default: true
+property :iis_express, [TrueClass, FalseClass], default: false
 property :other_options, String # Can be used for Language or other options depending on application
 property :returns, [Integer, Array], default: [0, 42]
 property :sql_password, String, sensitive: true # To be used only if required
