@@ -9,4 +9,4 @@ depends          'windows', '>= 2.0'
 
 source_url 'https://github.com/chef-cookbooks/webpi'
 issues_url 'https://github.com/chef-cookbooks/webpi/issues'
-chef_version '>= 12.6'
+chef_version '>= 12.15'
