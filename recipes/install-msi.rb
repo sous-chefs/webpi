@@ -26,7 +26,7 @@ windows_package node['webpi']['msi_package_name'] do
 end.run_action(:install)
 
 # MSI manage PATH
-::Chef::DSL::Recipe.send(:include, Chef::Mixin::PowershellOut)
+::Chef::DSL::Recipe.include Chef::Mixin::PowershellOut
 if powershell_out('Get-Command WebpiCmd.exe').exitstatus == 0
   node.default['webpi']['bin'] = 'WebpiCmd.exe'
 elsif ::File.exist? "#{ENV['ProgramW6432']}/Microsoft/Web Platform Installer/WebpiCmd.exe"

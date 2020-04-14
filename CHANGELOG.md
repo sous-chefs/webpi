@@ -1,6 +1,10 @@
 # webpi Cookbook CHANGELOG
 This file is used to list changes made in each version of the webpi cookbook.
 
+## Unreleased
+
+- resolved cookstyle error: recipes/install-msi.rb:29:21 warning: `Lint/SendWithMixinArgument`
+
 ## 4.2.1 (2017-05-30)
 
 - Use action_class instead of action_class.class_eval
