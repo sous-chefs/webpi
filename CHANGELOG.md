@@ -1,6 +1,8 @@
 # webpi Cookbook CHANGELOG
 This file is used to list changes made in each version of the webpi cookbook.
 
+## Unreleased
+
 ## 4.2.2 - *2021-06-01*
 
 - resolved cookstyle error: recipes/install-msi.rb:29:21 warning: `Lint/SendWithMixinArgument`
