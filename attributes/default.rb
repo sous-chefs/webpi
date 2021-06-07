@@ -22,11 +22,11 @@ default['webpi']['install_method'] = 'msi' # msi or zip
 
 case node['kernel']['machine']
 when 'x86_64'
-  default['webpi']['msi_checksum'] = 'fd3aa11da27a4698d9fd1fb61dcb5cae6d95ecf70554f0d655b0caf44b0d0ac6'
-  default['webpi']['msi'] = 'http://download.microsoft.com/download/C/F/F/CFF3A0B8-99D4-41A2-AE1A-496C08BEB904/WebPlatformInstaller_amd64_en-US.msi'
+  default['webpi']['msi_checksum'] = '13F4CBB9FA554F77F2AB407BAA40501FC6C131F3077D48AAB839CE63ED8A90E2'
+  default['webpi']['msi'] = 'https://download.microsoft.com/download/8/4/9/849DBCF2-DFD9-49F5-9A19-9AEE5B29341A/WebPlatformInstaller_x64_en-US.msi'
 when /i[3-6]86/
-  default['webpi']['msi_checksum'] = '4277d5f72f60dfda6d5c8f750f99fe963e0ed44add73e7440fda1bc05b510d25'
-  default['webpi']['msi'] = 'http://download.microsoft.com/download/C/F/F/CFF3A0B8-99D4-41A2-AE1A-496C08BEB904/WebPlatformInstaller_x86_en-US.msi'
+  default['webpi']['msi_checksum'] = '62E871352B413BC976D8E9402697C684B26807EB863B14D2F54677BDB969DD14'
+  default['webpi']['msi'] = 'https://download.microsoft.com/download/8/4/9/849DBCF2-DFD9-49F5-9A19-9AEE5B29341A/WebPlatformInstaller_x86_en-US.msi'
 end
 
 default['webpi']['msi_package_name'] = 'Microsoft Web Platform Installer 5.0'
