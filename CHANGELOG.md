@@ -1,6 +1,10 @@
 # webpi Cookbook CHANGELOG
 This file is used to list changes made in each version of the webpi cookbook.
 
+## 4.2.0 (2020-06-08)
+
+- Fix the depricated version of webpi by Microsoft and replace it with 5.1
+
 ## 4.1.0 (2017-03-20)
 
 - Test with Local Delivery instead of Rake
