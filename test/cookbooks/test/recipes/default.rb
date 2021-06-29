@@ -1,10 +1,6 @@
-#
-# Cookbook:: test
-# Recipe:: default
-#
-# Copyright:: 2017-2019, Chef Software, Inc.
+# include_recipe 'webpi::default'
 
-include_recipe 'webpi::default'
+webpi_install 'msi'
 
 webpi_product 'PHP54' do
   accept_eula true

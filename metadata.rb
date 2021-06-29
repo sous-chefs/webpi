@@ -5,7 +5,6 @@ license          'Apache-2.0'
 description      'Installs/Configures the Microsoft Web Platform Installer (WebPI)'
 version          '4.2.1'
 supports         'windows'
-depends          'windows', '>= 2.0'
 
 source_url 'https://github.com/chef-cookbooks/webpi'
 issues_url 'https://github.com/chef-cookbooks/webpi/issues'

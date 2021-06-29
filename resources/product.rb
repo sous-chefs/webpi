@@ -1,32 +1,30 @@
-#
-# Author:: Seth Chisamore (<schisamo@chef.io>)
-# Cookbook:: webpi
-# Resource:: product
-#
-# Copyright:: 2011-2019, Chef Software, Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
+property :product_id,
+        String,
+        name_property: true
 
-property :product_id, String, name_property: true
-property :accept_eula, [true, false], default: false
-property :webpi_cmd_path, String
-property :webpi_log_path, String, default: lazy { "#{Chef::Config[:file_cache_path]}/WebPI.log" }
-property :xml_path, String
-property :webpi_cmd_path, String, default: "#{ENV['SYSTEMDRIVE']}\\webpi\\WebpiCmd.exe"
-property :returns, [Integer, Array], default: [0, 42]
+property :accept_eula,
+        [true, false],
+        default: false
 
-include Windows::Helper
+property :webpi_cmd_path,
+        String
+
+property :webpi_log_path,
+        String,
+        default: lazy { "#{Chef::Config[:file_cache_path]}/WebPI.log" }
+
+property :xml_path,
+        String
+
+property :webpi_cmd_path,
+        String,
+        default: "#{ENV['SYSTEMDRIVE']}\\webpi\\WebpiCmd.exe"
+
+property :returns,
+        [Integer, Array],
+        default: [0, 42]
+
+unified_mode true
 
 action :install do
   install_list = prods_to_be_installed
