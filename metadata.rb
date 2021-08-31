@@ -3,7 +3,7 @@ maintainer       'Chef Software, Inc.'
 maintainer_email 'cookbooks@chef.io'
 license          'Apache-2.0'
 description      'Installs/Configures the Microsoft Web Platform Installer (WebPI)'
-version          '4.2.2'
+version          '4.2.3'
 supports         'windows'
 depends          'windows', '>= 2.0'
 
