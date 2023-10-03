@@ -4,6 +4,9 @@ This file is used to list changes made in each version of the webpi cookbook.
 
 ## Unreleased
 
+- Use archive_file rather than windows_zipfile ofr extracting the webpi zip file
+- Turn on unified mode
+
 ## 4.3.0 - *2023-10-03*
 
 - Standardise files with files in sous-chefs/repo-management
@@ -70,7 +73,7 @@ This file is used to list changes made in each version of the webpi cookbook.
 
 ### Bug
 
-- **[COOK-3832](https://tickets.chef.io/browse/COOK-3832)** - install-msi recipe should leverage chef cache
+- install-msi recipe should leverage chef cache
 
 ## v1.2.6
 
@@ -80,7 +83,7 @@ This file is used to list changes made in each version of the webpi cookbook.
 
 ### Improvement
 
-- **[COOK-3474](https://tickets.chef.io/browse/COOK-3474)** - Upgrade WebPI (4.5 no longer exists)
+- Upgrade WebPI (4.5 no longer exists)
 
 ## v1.2.2
 

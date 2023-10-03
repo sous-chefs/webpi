@@ -33,10 +33,10 @@ directory installdir do
   recursive true
 end
 
-windows_zipfile 'webpicmdline' do
+archive_file 'webpicmdline' do
   path installdir
   source "#{Chef::Config[:file_cache_path]}/#{file_name}"
-  not_if { ::File.exist?("#{node['webpi']['home']}/WebpiCmd.exe") }
+  action :extract
 end
 
 node.default['webpi']['bin'] = "#{node['webpi']['home']}\\WebpiCmd.exe"
