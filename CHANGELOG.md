@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the webpi cookbook.
 
-## Unreleased
+## 5.0.0 - *2023-10-03*
 
 - Use archive_file rather than windows_zipfile ofr extracting the webpi zip file
 - Turn on unified mode
