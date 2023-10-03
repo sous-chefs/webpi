@@ -74,7 +74,6 @@ webpi_product 'WindowsAzurePowerShellGet' do
 end
 ```
 
-
 ### webpi_application
 
 #### Actions
@@ -93,6 +92,7 @@ end
 - returns: specifies the return value(s) expected for a successful installation. Can be a single integer or array of integers. Default is [0, 42]
 
 #### Examples
+
 Installing WebMatrix while Accepting the EULA and also install app to IISExpress
 Ex: >WebPICMD.exe /Install /Products:WebMatrix /AcceptEula /IISExpress
 
@@ -105,7 +105,7 @@ end
 ```
 
 Installing an application to MicrosoftAzure ServiceFabric CoreSDK
-Ex: >WebPICMD.exe /Install /Applications:MicrosoftAzure-ServiceFabric-CoreSDK /AcceptEula 
+Ex: >WebPICMD.exe /Install /Applications:MicrosoftAzure-ServiceFabric-CoreSDK /AcceptEula
 
 ```ruby
 webpi_application 'MicrosoftAzure-ServiceFabric-CoreSDK' do
@@ -113,7 +113,6 @@ webpi_application 'MicrosoftAzure-ServiceFabric-CoreSDK' do
   action :install
 end
 ```
-
 
 ```ruby
 password = data_bag_item('secrets','mysqlpassword')['password'] # Should be a encrypted data bag
