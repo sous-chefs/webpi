@@ -1,13 +1,5 @@
 require 'spec_helper'
 
-describe 'default recipe on Windows 2008 R2' do
-  platform 'windows', '2008'
-
-  it 'converges successfully' do
-    expect { :chef_run }.to_not raise_error
-  end
-end
-
 describe 'default recipe on Windows 2012 R2' do
   platform 'windows', '2012R2'
 
