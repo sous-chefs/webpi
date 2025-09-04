@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the webpi cookbook.
 
-## Unreleased
+## 5.0.4 - *2025-09-04*
 
 ## 5.0.3 - *2024-05-03*
 
