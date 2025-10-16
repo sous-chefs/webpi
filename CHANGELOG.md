@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the webpi cookbook.
 
+## [5.0.5](https://github.com/sous-chefs/webpi/compare/5.0.4...v5.0.5) (2025-10-16)
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#73](https://github.com/sous-chefs/webpi/issues/73)) ([77f9f31](https://github.com/sous-chefs/webpi/commit/77f9f314997a518e23c82328e1a56c41bbde44b0))
+
 ## 5.0.0 - *2023-10-03*
 
 * Use archive_file rather than windows_zipfile ofr extracting the webpi zip file
