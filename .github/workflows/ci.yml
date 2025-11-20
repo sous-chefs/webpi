@@ -8,7 +8,7 @@ name: "Test"
 
 jobs:
   lint-unit:
-    uses: sous-chefs/.github/.github/workflows/lint-unit.yml@4.0.0
+    uses: sous-chefs/.github/.github/workflows/lint-unit.yml@5.0.7
     permissions:
       actions: write
       checks: write
@@ -18,7 +18,7 @@ jobs:
 
   integration:
     needs: "lint-unit"
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       matrix:
         os:
@@ -28,7 +28,7 @@ jobs:
       fail-fast: false
     steps:
       - name: Check out code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
       - name: Install Chef
         uses: actionshub/chef-install@3.0.1
       - name: Kitchen Test
