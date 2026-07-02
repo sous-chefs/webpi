@@ -33,9 +33,8 @@ directory installdir do
   recursive true
 end
 
-archive_file 'webpicmdline' do
-  path installdir
-  source "#{Chef::Config[:file_cache_path]}/#{file_name}"
+archive_file "#{Chef::Config[:file_cache_path]}/#{file_name}" do
+  destination installdir
   action :extract
 end
 
