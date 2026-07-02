@@ -10,6 +10,7 @@ transport:
 
 provisioner:
   name: chef_zero
+  policyfile: Policyfile.rb
   deprecations_as_errors: true
   chef_license: accept-no-persist
 
@@ -26,5 +27,5 @@ platforms:
 
 suites:
   - name: default
-    run_list:
-      - recipe[test::default]
+    provisioner:
+      named_run_list: default

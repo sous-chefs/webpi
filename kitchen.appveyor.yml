@@ -9,6 +9,7 @@ driver:
 
 provisioner:
   name: chef_zero
+  policyfile: Policyfile.rb
   deprecations_as_errors: true
   client_rb:
     chef_license: accept
@@ -18,5 +19,5 @@ platforms:
 
 suites:
   - name: default
-    run_list:
-      - recipe[test::default]
+    provisioner:
+      named_run_list: default
