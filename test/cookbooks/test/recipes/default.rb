@@ -4,6 +4,8 @@
 #
 # Copyright:: 2017-2019, Chef Software, Inc.
 
+node.default['webpi']['install_method'] = 'zip'
+
 include_recipe 'webpi::default'
 
 webpi_product 'PHP54' do
