@@ -2,6 +2,14 @@
 
 This file is used to list changes made in each version of the webpi cookbook.
 
+## [5.0.7](https://github.com/sous-chefs/webpi/compare/v5.0.6...v5.0.7) (2026-08-15)
+
+
+### Bug Fixes
+
+* **ci:** pass required slack secrets and allow tag republish ([#85](https://github.com/sous-chefs/webpi/issues/85)) ([59a915c](https://github.com/sous-chefs/webpi/commit/59a915cac1c9ad4c4fa535ebf8d33f2aa7c08c68))
+* migrate to Policyfile and repair ci final job ([#82](https://github.com/sous-chefs/webpi/issues/82)) ([e4a4196](https://github.com/sous-chefs/webpi/commit/e4a4196b3ebe8b92946edbea681c6e14560db187))
+
 ## [5.0.6](https://github.com/sous-chefs/webpi/compare/v5.0.5...v5.0.6) (2026-03-02)
 
 
