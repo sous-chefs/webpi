@@ -22,8 +22,9 @@ permissions:
 
 jobs:
   release:
-    uses: sous-chefs/.github/.github/workflows/release-cookbook.yml@9.0.0
+    uses: sous-chefs/.github/.github/workflows/release-cookbook.yml@main
     with:
+      publish_oci: true
       release_tag: ${{ inputs.release_tag }}
     secrets:
       token: ${{ secrets.PORTER_GITHUB_TOKEN }}
