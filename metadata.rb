@@ -3,7 +3,7 @@ maintainer       'Sous Chefs'
 maintainer_email 'help@sous-chefs.org'
 license          'Apache-2.0'
 description      'Installs/Configures the Microsoft Web Platform Installer (WebPI)'
-version          '5.0.7'
+version          '5.0.8'
 supports         'windows'
 depends          'windows', '>= 2.0'
 
