@@ -1,7 +1,10 @@
 ---
 driver: { name: exec }
 transport: { name: exec }
-
 platforms:
   - name: macos-latest
   - name: windows-latest
+    provisioner:
+      name: chef_infra
+      product_name: cinc
+      install_strategy: once
