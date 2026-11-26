@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of the webpi cookbook.
 
+## [5.0.8](https://github.com/sous-chefs/webpi/compare/v5.0.7...v5.0.8) (2026-11-26)
+
+
+### Bug Fixes
+
+* avoid dead WebPI feed integration installs ([12a938d](https://github.com/sous-chefs/webpi/commit/12a938d4f764c099298812db5cd0abeccdbb3571))
+
 ## [5.0.7](https://github.com/sous-chefs/webpi/compare/v5.0.6...v5.0.7) (2026-08-15)
 
 
